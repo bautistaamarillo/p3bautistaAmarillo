@@ -8,5 +8,7 @@ Hola mundo!
 <hr>
 <!-- <input type="button" value="Volver" onclick="volver()"> -->
 
-<a href="/"><button> Volver </button></a>
-Armar un boton que diga volver, y que ese boton nos lleve a la pagina de welcome
+<a href="test"><button> Volver </button></a>
+
+
+<!-- Armar un boton que diga volver, y que ese boton nos lleve a la pagina de welcome -->
