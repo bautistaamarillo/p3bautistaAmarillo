@@ -13,7 +13,9 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-        dd($students);
+        // dd($students);
+
+        return view("students.index", compact('students'));
     }
 
     /**
@@ -45,7 +47,12 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+      
+        
+        $student = Student::WHERE('ID',$id)->get();
+        return view("students.edit",compact('student'));
+
+
     }
 
     /**
@@ -53,7 +60,14 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $student = Student::find($id);
+        $student -> name = $request -> name;
+        $student -> lastname = $request -> lastname;
+        $student -> dni = $request -> dni;
+        $student -> birthdate = $request -> birthdate;
+        
+        $student -> save();
+        return redirect()->route('students.index');
     }
 
     /**

@@ -16,11 +16,13 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
+    
+
        // $faker = Factory::create('es_VE');
         return [
             'name' => fake()->name(),
             'lastname' => fake()->lastName(),
-            'dni' => fake()->ein(),
+            'dni' => fake()->dni(),
             'birthdate' =>fake()->date('Y_m_d'),
             'status' => fake()->boolean(),
 
