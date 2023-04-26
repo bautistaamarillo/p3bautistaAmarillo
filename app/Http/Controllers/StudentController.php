@@ -67,6 +67,15 @@ class StudentController extends Controller
         $student -> birthdate = $request -> birthdate;
         
         $student -> save();
+
+        // DB::table('audits')->insert([
+        //     'id' => 'Horacio',
+        //     'lastname' => 'Guarani',
+        //     'dni' => '36978541' ,
+        //     'birthdate' => '1998/12/12',
+        //     'status' => 1
+        // ]);
+
         return redirect()->route('students.index');
     }
 
