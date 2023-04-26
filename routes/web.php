@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AuditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::get('index', function () {
     return view('index');
 });
 Route::resource('students',StudentController::class);
+
+Route::get('audit', [AuditController::class, 'index']);
