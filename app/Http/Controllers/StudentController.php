@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Traits;
 
 class StudentController extends Controller
 {
+    use auditTrait;
     /**
      * Display a listing of the resource.
      */
@@ -89,7 +91,8 @@ class StudentController extends Controller
         //     'id' => '1',
         //     'log' => 'Se realizo un cambio',
         //     'action' => 'M' ,
-        //     'user_id' => '5',            
+        //     'user_id' => '5',           
+        //IMPLEMENTAR UN TRAIT 
         // ]);
 
 

@@ -18,7 +18,10 @@
             <td> {{$student->lastname}}</td>
             <td> {{$student->dni}}</td>
             <td> {{$student->birthdate}}</td>
-            <td><a href="students/{{$student->id}}/edit"><button value="editar">Editar</button></a>
+            <td>
+                <a href="students/{{$student->id}}/edit">
+                <button value="editar">Editar</button>
+                </a>
                 <form action="{{route('students.destroy',[$student->id])}}" method="post">
                     @CSRF
                     @method('delete')
