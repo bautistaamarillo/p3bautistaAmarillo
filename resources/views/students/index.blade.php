@@ -22,7 +22,7 @@
                 <form action="{{route('students.destroy',[$student->id])}}" method="post">
                     @CSRF
                     @method('delete')
-                <a href="students/{{$student->id}}"><button value="borrar">Borrar</button></a>
+                <button type="submit"> Borrar</button>
                 </form>
             </td>     
     </tbody>
