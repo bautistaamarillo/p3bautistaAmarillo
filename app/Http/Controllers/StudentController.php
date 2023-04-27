@@ -23,7 +23,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -31,7 +31,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //  dd($request -> status);
+            // $student = new Student;
+            // $student ->name = $request -> name;
+            // $student ->lastname = $request -> lastname;
+            // $student ->dni = $request -> dni;
+            // $student ->birthdate = $request -> birthdate;
+            // $student ->status = '1';
+            // $student ->save();            
+        
+            $student = Student::create([
+                'name' => $request -> name,
+                'lastname' => $request -> lastname,
+                'dni' => $request -> dni,
+                'birthdate' => $request -> birthdate,
+                'status' => $request -> status,
+            ]);
+
+
     }
 
     /**
@@ -69,12 +86,12 @@ class StudentController extends Controller
         $student -> save();
 
         // DB::table('audits')->insert([
-        //     'id' => 'Horacio',
-        //     'lastname' => 'Guarani',
-        //     'dni' => '36978541' ,
-        //     'birthdate' => '1998/12/12',
-        //     'status' => 1
+        //     'id' => '1',
+        //     'log' => 'Se realizo un cambio',
+        //     'action' => 'M' ,
+        //     'user_id' => '5',            
         // ]);
+
 
         return redirect()->route('students.index');
     }
@@ -84,6 +101,8 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // dd($id);
+        Student::destroy($id);
+        return redirect()->route('students.index');
     }
 }

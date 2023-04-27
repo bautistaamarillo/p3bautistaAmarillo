@@ -18,13 +18,18 @@
             <td> {{$student->lastname}}</td>
             <td> {{$student->dni}}</td>
             <td> {{$student->birthdate}}</td>
-            <td><a href="students/{{$student->id}}/edit"><button value="editar">Editar</button></a></td>
-            
+            <td><a href="students/{{$student->id}}/edit"><button value="editar">Editar</button></a>
+                <form action="{{route('students.destroy',[$student->id])}}" method="post">
+                    @CSRF
+                    @method('delete')
+                <a href="students/{{$student->id}}"><button value="borrar">Borrar</button></a>
+                </form>
+            </td>     
     </tbody>
     </tr>
+    
     @endforeach
-    
-    
-    
-    
+   
     </table> <br>
+
+    
