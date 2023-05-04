@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Traits\AuditTrait;
+use Illuminate\Support\Fecades\Auth;
+use App\Models\Audit;
+
 
 class StudentController extends Controller
 {
     use AuditTrait;
+    
     /**
      * Display a listing of the resource.
      */
