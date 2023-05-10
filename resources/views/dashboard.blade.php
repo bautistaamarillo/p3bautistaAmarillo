@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                 
-
+    
                 <table border="1">
     
     <thead>
@@ -45,12 +45,6 @@
     @endforeach
    
     </table> <br>
-
-
-
-
-
-
                 </div>
             </div>
         </div>

@@ -33,3 +33,17 @@ en cuanto a las vistas, que sea lo mas minimalista posible, este framework trae 
 asi que podemos usar boostrap
 
 VALIDAR que tenga las materias necesarias aprobadas para estar cursando
+
+
+Tenemos que crear las tablas de materias y carrera
+
+En materia tendremos:
+
+ID
+Time Stamp
+
+Nombre
+Dia
+Hora inicio
+Hora fin
+Tope 
