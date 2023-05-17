@@ -13,6 +13,7 @@ la asistencia va a tener fecha y hora dni
 este sistema va a ser un sistema web, vamos a poder prender una compu, logearme y ver quien vino y quien no
 vamos a poder tambien imprimir listados, dar de alta alumnos,carreras 
 
+
 vamos a necesitar usuarios administradores 
 
 la parte administrativa va a poder de alta crud

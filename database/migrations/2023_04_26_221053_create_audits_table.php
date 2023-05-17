@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('audits', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->text("log");
             $table->enum("action",["A","B","M"]);
             $table->biginteger("user_id");
+            $table->timestamps();
         });
     }
 

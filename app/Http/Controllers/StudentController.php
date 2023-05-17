@@ -7,6 +7,8 @@ use App\Models\Student;
 use App\Traits\AuditTrait;
 use Illuminate\Support\Fecades\Auth;
 use App\Models\Audit;
+use App\Models\Subject;
+
 
 
 class StudentController extends Controller
@@ -18,7 +20,12 @@ class StudentController extends Controller
      */
     public function index()
     {
+        $student = Student::find(1);
+        $student -> subjects;
+        dd ($student);
+
         $students = Student::all();
+    
         return view("students.index", compact('students'));
     }
 
