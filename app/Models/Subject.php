@@ -11,10 +11,8 @@ class Subject extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'day',
-        'start_time',
-        'end_time',
-        'limit_time',
+        'id_subject_setting',
+        'student_id',
     ];
     public function student(): BelongsTo
     {

@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('subject_settings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->string('name');
-            $table->unsignedBigInteger('id_subject_setting');
+            $table->unsignedBigInteger('subject_id');
+            $table->enum("day",[1,2,3,4,5,6,7]);
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->time('limit_time');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('subject_settings');
     }
 };
