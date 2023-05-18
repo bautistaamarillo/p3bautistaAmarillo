@@ -41,6 +41,10 @@ Route::get('/', function () {
 
 Route::resource('subjects',SubjectController::class);
 
+Route::get('/test', function () {
+    return view('test');
+})->middleware(['auth', 'verified'])->name('test');
+
 
 // ----------LOGIN-------------
 Route::get('/dashboard', function () {
