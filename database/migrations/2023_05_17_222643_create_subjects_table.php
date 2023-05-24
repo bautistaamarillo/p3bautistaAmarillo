@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
             $table->string('name');
             $table->unsignedBigInteger('id_subject_setting');
             $table->timestamps();
