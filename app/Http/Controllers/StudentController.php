@@ -22,11 +22,11 @@ class StudentController extends Controller
     {
         $student = Student::find(1);
         $student -> subjects;
-        dd ($student);
+        // dd ($student);
 
         $students = Student::all();
     
-        return view("students.index", compact('students'));
+        return view("/dashboard", compact('students'));
     }
 
     /**

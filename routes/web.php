@@ -50,6 +50,7 @@ Route::get('/test', function () {
 Route::get('/dashboard', function () {
     $students = Student::all();
     return view('dashboard', compact('students'));
+    // return $students->tojson();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
