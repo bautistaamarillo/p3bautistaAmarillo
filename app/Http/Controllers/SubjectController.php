@@ -12,9 +12,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        $subject = Subject::find(1);
-        $subject -> student;
-        dd ($subject);
+    
+        dd ('hola');
     }
 
     /**

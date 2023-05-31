@@ -11,6 +11,7 @@ use App\Models\Subject;
 
 
 
+
 class StudentController extends Controller
 {
     use AuditTrait;
@@ -20,13 +21,15 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::find(1);
-        $student -> subjects;
-        // dd ($student);
+
+    
+       
 
         $students = Student::all();
-    
-        return view("/dashboard", compact('students'));
+        // dd($students);
+        return view('studentlist', compact('students'));
+        // return view("studentslist", compact('students')); //despues de editar o eliminar en dashboard 
+        //vuelvo a la vista de dashboard sin perder la lista.
     }
 
     /**

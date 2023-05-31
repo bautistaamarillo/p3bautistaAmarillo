@@ -46,6 +46,19 @@ Route::get('/test', function () {
 })->middleware(['auth', 'verified'])->name('test');
 
 
+
+// Route::get('/subjectlist', function () {
+//     $students = Student::all();
+//     return view('subjectlist');
+// })->middleware(['auth', 'verified'])->name('subjectlist'); //subject list, crud ¿?¿?¿
+
+Route::get('/dashboard', function () {
+    $students = Student::all();
+    return view('dashboard', compact('students'));
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
 // ----------LOGIN-------------
 Route::get('/dashboard', function () {
     $students = Student::all();
@@ -58,6 +71,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('students',StudentController::class);
+    Route::resource('subjects', SubjectController::class);
     
 });
 
