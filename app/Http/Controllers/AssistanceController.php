@@ -64,6 +64,8 @@ class AssistanceController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Assistance::destroy($id);
+        $this->logAudit('Baja de asistencia','B');
+        return redirect()->route('assistancelist');
     }
 }
