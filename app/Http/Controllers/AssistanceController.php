@@ -12,7 +12,7 @@ class AssistanceController extends Controller
      */
     public function index()
     {
-        //
+        $assistance = Assistance::all();
     }
 
     /**
@@ -42,9 +42,11 @@ class AssistanceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Assistance $assistance)
+    public function edit(string $id)
     {
-        //
+        $assistance = Assistance::WHERE('ID',$id)->get();
+        return view("assistances.edit",compact('assistance'));
+
     }
 
     /**

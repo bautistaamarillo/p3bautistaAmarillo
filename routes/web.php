@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\AuditController;
+use App\Http\Controllers\AssistanceController;
 use App\Models\Student;
 
 /*
@@ -39,18 +40,9 @@ Route::get('/', function () {
 
 // --------- Desarrollando ------------
 
-Route::resource('subjects',SubjectController::class);
-
 Route::get('/test', function () {
     return view('test');
 })->middleware(['auth', 'verified'])->name('test');
-
-
-
-// Route::get('/subjectlist', function () {
-//     $students = Student::all();
-//     return view('subjectlist');
-// })->middleware(['auth', 'verified'])->name('subjectlist'); //subject list, crud ¿?¿?¿
 
 Route::get('/dashboard', function () {
     $students = Student::all();
@@ -72,6 +64,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('students',StudentController::class);
     Route::resource('subjects', SubjectController::class);
+    Route::resource('assistances', AssistanceController::class);
     
 });
 

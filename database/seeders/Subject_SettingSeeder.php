@@ -20,14 +20,14 @@ class Subject_SettingSeeder extends Seeder
             'day' => 1,
             'start_time' => '16:00:00',
             'end_time' => '19:20:00' ,
-            'limit_time' => '17:30:00', // Practica profecionalizante 
+            'limit_time' => '17:30:00', // Practica profecionalizante III
         ]);
         DB::table('subject_settings')->insert([
             'subject_id' => 2,
             'day' => 1,
             'start_time' => '19:30:00',
             'end_time' => '20:50:00' ,
-            'limit_time' => '20:00:00', // Analisis y diseño
+            'limit_time' => '20:00:00', //Analisis y diseño II
         ]);  
 
         //////////////////MARTES//////////////////
@@ -43,7 +43,7 @@ class Subject_SettingSeeder extends Seeder
             'day' => 2,
             'start_time' => '18:00:00',
             'end_time' => '21:35:00' ,
-            'limit_time' => '19:00:00', //Practica profecionalizante
+            'limit_time' => '19:00:00', //Practica profecionalizante III
         ]);
 
         //////////////////MIERCOLES//////////////////
@@ -52,7 +52,7 @@ class Subject_SettingSeeder extends Seeder
             'day' => 3,
             'start_time' => '18:40:00',
             'end_time' => '20:10:00' ,
-            'limit_time' => '19:20:00', //Programacion
+            'limit_time' => '19:20:00', //Programacion III
         ]);
         DB::table('subject_settings')->insert([
             'subject_id' => 5,
@@ -68,7 +68,7 @@ class Subject_SettingSeeder extends Seeder
             'day' => 4,
             'start_time' => '16:45:00',
             'end_time' => '19:20:00' ,
-            'limit_time' => '18:00:00', //Programacion
+            'limit_time' => '18:00:00', //Programacion III
         ]);
         
         //////////////////VIERNES//////////////////
@@ -98,7 +98,7 @@ class Subject_SettingSeeder extends Seeder
             'day' => 5,
             'start_time' => '20:55:00',
             'end_time' => '22:15:00' ,
-            'limit_time' => '21:30:00', //Analisis
+            'limit_time' => '21:30:00', //Analisis y diseño II
         ]);
 
         
