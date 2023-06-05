@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Assistance;
 use Illuminate\Http\Request;
+use App\Models\Audit;
+use App\Traits\AuditTrait;
 
 class AssistanceController extends Controller
 {
@@ -13,6 +15,8 @@ class AssistanceController extends Controller
     public function index()
     {
         $assistance = Assistance::all();
+        return view('assistances.index', compact('assistance')); //Hacer despues una ruta, que redirija
+        //a assistanceslist, al igual que con subjectslist y studentlist.
     }
 
     /**
@@ -20,7 +24,7 @@ class AssistanceController extends Controller
      */
     public function create()
     {
-        //
+        return view('assistances.create');
     }
 
     /**
@@ -28,12 +32,10 @@ class AssistanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Hacer el store, despues de crear una asistencia
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Assistance $assistance)
     {
         //
@@ -52,7 +54,7 @@ class AssistanceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Assistance $assistance)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -60,7 +62,7 @@ class AssistanceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Assistance $assistance)
+    public function destroy(string $id)
     {
         //
     }

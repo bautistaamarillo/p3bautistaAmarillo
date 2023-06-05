@@ -21,15 +21,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-
-    
-       
-
         $students = Student::all();
-        // dd($students);
+      
         return view('studentlist', compact('students'));
-        // return view("studentslist", compact('students')); //despues de editar o eliminar en dashboard 
-        //vuelvo a la vista de dashboard sin perder la lista.
+        
     }
 
     /**
@@ -45,14 +40,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //  dd($request -> status);
-            // $student = new Student;
-            // $student ->name = $request -> name;
-            // $student ->lastname = $request -> lastname;
-            // $student ->dni = $request -> dni;
-            // $student ->birthdate = $request -> birthdate;
-            // $student ->status = '1';
-            // $student ->save();            
+                  
         
             $student = Student::create([
                 'name' => $request -> name,
@@ -100,13 +88,7 @@ class StudentController extends Controller
         
         $student -> save();
         $this->logAudit('Modificacion','M');
-        // DB::table('audits')->insert([
-        //     'id' => '1',
-        //     'log' => 'Alta',
-        //     'action' => 'M' ,
-        //     'user_id' => '5',           
-        //IMPLEMENTAR UN TRAIT 
-        // ]);
+       
 
 
         return redirect()->route('students.index');
