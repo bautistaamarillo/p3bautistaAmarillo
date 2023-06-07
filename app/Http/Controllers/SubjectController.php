@@ -26,7 +26,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('subjects.create');
     }
 
     /**
@@ -34,7 +34,13 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject = Subject::create([
+            'name' => $request -> name,
+            // 'id' => $request -> id,
+        ]);
+
+        $this->logAudit('Alta en subjects','A');
+        return redirect()->route('subjects.index');
     }
 
     /**
