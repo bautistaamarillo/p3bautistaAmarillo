@@ -66,6 +66,6 @@ class AssistanceController extends Controller
     {
         Assistance::destroy($id);
         $this->logAudit('Baja de asistencia','B');
-        return redirect()->route('assistancelist');
+        return redirect()->route('assistances.index');
     }
 }
