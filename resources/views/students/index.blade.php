@@ -1,4 +1,4 @@
-<li>Hola mundo</li>
+<!-- <li>Hola mundo</li>
 
 <table border="1">
     
@@ -33,6 +33,6 @@
     
     @endforeach
    
-    </table> <br>
+    </table> <br> -->
 
-    
+    <!-- No estoy usando este index, cree una lista para cada cosa, en este caso studentlist. -->
