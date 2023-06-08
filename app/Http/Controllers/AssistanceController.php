@@ -15,7 +15,7 @@ class AssistanceController extends Controller
     public function index()
     {
         $assistance = Assistance::all();
-        return view('assistances.index', compact('assistance')); //Hacer despues una ruta, que redirija
+        return view('assistances.assistancelist', compact('assistance')); //Hacer despues una ruta, que redirija
         //a assistanceslist, al igual que con subjectslist y studentlist.
     }
 

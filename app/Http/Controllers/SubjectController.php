@@ -38,7 +38,9 @@ class SubjectController extends Controller
             'name' => $request -> name,
             // 'id' => $request -> id,
         ]);
+        $subjectSetting = SubjectSettings::create([
 
+        ]);
         $this->logAudit('Alta en subjects','A');
         return redirect()->route('subjects.index');
     }
