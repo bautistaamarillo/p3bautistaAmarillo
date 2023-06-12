@@ -2,7 +2,10 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Asistencias') }}
-        </h2>
+        </h2><br>
+        <a href="assistances/create">
+        <button value="crear">Crear Nuevo</button>
+        </a>
     </x-slot>
 
     <div class="py-12">
