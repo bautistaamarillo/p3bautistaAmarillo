@@ -18,7 +18,83 @@ class Student_SubjectSeeder extends Seeder
             'subject_id' => '1',
             'created_at' => now(),
             'updated_at' => now(),
+        ]);
 
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '1',
+            'subject_id' => '2',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '1',
+            'subject_id' => '3',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '1',
+            'subject_id' => '4',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '1',
+            'subject_id' => '5',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '2',
+            'subject_id' => '1',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '2',
+            'subject_id' => '2',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '2',
+            'subject_id' => '3',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '3',
+            'subject_id' => '3',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '3',
+            'subject_id' => '4',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '3',
+            'subject_id' => '6',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table ('student_subjects') -> insert ([
+            'student_id' => '4',
+            'subject_id' => '7',
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 }
