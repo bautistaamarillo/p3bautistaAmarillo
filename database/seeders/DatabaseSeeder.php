@@ -5,8 +5,9 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use  App\Models\Student;
 use  App\Models\User;
-use  App\Models\Subject;
-use  App\Models\Subject_Setting;
+
+
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,8 +24,10 @@ class DatabaseSeeder extends Seeder
 
        $this->call([SubjectSeeder::class]);
     
-
        $this->call([Subject_SettingSeeder::class]);
+
+       $this->call([Student_SubjectSeeder::class]);
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

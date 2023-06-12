@@ -5,34 +5,43 @@ namespace App\Http\Controllers;
 use App\Models\Assistance;
 use Illuminate\Http\Request;
 use App\Models\Audit;
+use App\Models\Student;
 use App\Traits\AuditTrait;
 
 class AssistanceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
+        
         $assistance = Assistance::all();
         return view('assistances.assistancelist', compact('assistance')); //Hacer despues una ruta, que redirija
         //a assistanceslist, al igual que con subjectslist y studentlist.
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         return view('assistances.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        // Hacer el store, despues de crear una asistencia
+        $dniIngresado = $request->dni;
+        $estudianteActual = Student::Where("dni", $dniIngresado)->first();
+        $materias = $estudianteActual->subjects;
+
+        if (isset ($estudianteActual)) {
+            dd($materias);
+        }
+        else {
+            dd("Este documento que ingreso no existe.");
+        }
+
+
+
+        
     }
 
 
@@ -41,9 +50,7 @@ class AssistanceController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+   
     public function edit(string $id)
     {
         $assistance = Assistance::WHERE('ID',$id)->get();
@@ -51,17 +58,11 @@ class AssistanceController extends Controller
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         Assistance::destroy($id);
