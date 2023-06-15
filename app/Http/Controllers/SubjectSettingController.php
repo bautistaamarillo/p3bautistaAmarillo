@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SubjectSettings;
+use App\Models\SubjectSetting;
 use Illuminate\Http\Request;
 
-class SubjectSettingsController extends Controller
+class SubjectSettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class SubjectSettingsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SubjectSettings $subjectSettings)
+    public function show(SubjectSetting $subjectSetting)
     {
         //
     }
@@ -42,7 +42,7 @@ class SubjectSettingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SubjectSettings $subjectSettings)
+    public function edit(SubjectSetting $subjectSetting)
     {
         //
     }
@@ -50,7 +50,7 @@ class SubjectSettingsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SubjectSettings $subjectSettings)
+    public function update(Request $request, SubjectSetting $subjectSetting)
     {
         //
     }
@@ -58,7 +58,7 @@ class SubjectSettingsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SubjectSettings $subjectSettings)
+    public function destroy(SubjectSetting $subjectSetting)
     {
         //
     }

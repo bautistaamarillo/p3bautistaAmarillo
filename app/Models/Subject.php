@@ -23,7 +23,7 @@ class Subject extends Model
 
     public function subjectSettings(): HasMany
     {
-        return $this->hasMany(SettingSubject::class);
+        return $this->hasMany(SubjectSetting::class);
     }
 
     

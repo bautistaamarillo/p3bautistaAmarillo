@@ -6,7 +6,9 @@ use App\Models\Assistance;
 use Illuminate\Http\Request;
 use App\Models\Audit;
 use App\Models\Student;
+use App\Models\Subject;
 use App\Traits\AuditTrait;
+use Carbon\Carbon;
 
 class AssistanceController extends Controller
 {
@@ -28,12 +30,20 @@ class AssistanceController extends Controller
     
     public function store(Request $request)
     {
-        $dniIngresado = $request->dni;
-        $estudianteActual = Student::Where("dni", $dniIngresado)->first();
-        $materias = $estudianteActual->subjects;
+        $tiempoActual = Carbon::now()->format('H:i:s'); //Es la hora, minuto y segundo actual.
+        $diaActual = date('w'); //Me devuelve el dia (1,2,3,4 y 5) de lunes a viernes.
+        
+        $dniIngresado = $request->dni; //Dni que ingresa para darse de alta la asistencia
+        $estudianteActual = Student::Where("dni", $dniIngresado)->first(); //Estudiante cuyo dni fue ingresado
+        $materias = $estudianteActual->subjects; //Materias que cursa este estudiante.
 
-        if (isset ($estudianteActual)) {
-            dd($materias);
+        if (isset ($estudianteActual)) { //SI ESTUDIANTE ACTUAL EXISTE ENTONCES:
+            foreach ($materias as $materia) {
+                foreach ($materia->subjectSettings as $configuracionMateria){
+                echo($configuracionMateria->day).'<br>'; // hacer la comparacion entre dias y hora actual
+
+                }
+            }
         }
         else {
             dd("Este documento que ingreso no existe.");
