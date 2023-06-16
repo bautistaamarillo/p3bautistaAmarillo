@@ -67,8 +67,8 @@ class Subject_SettingSeeder extends Seeder
             'subject_id' => 4,
             'day' => 4,
             'start_time' => '16:45:00',
-            'end_time' => '19:20:00' ,
-            'limit_time' => '18:00:00', //Programacion III
+            'end_time' => '22:15:00' ,
+            'limit_time' => '21:00:00', //Programacion III
         ]);
         
         //////////////////VIERNES//////////////////

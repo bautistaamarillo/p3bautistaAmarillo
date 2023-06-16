@@ -33,6 +33,7 @@ class AssistanceController extends Controller
         $tiempoActual = Carbon::now()->format('H:i:s'); //Es la hora, minuto y segundo actual.
         $diaActual = date('w'); //Me devuelve el dia (1,2,3,4 y 5) de lunes a viernes.
         
+        
         $dniIngresado = $request->dni; //Dni que ingresa para darse de alta la asistencia
         $estudianteActual = Student::Where("dni", $dniIngresado)->first(); //Estudiante cuyo dni fue ingresado
         $materias = $estudianteActual->subjects; //Materias que cursa este estudiante.
@@ -40,20 +41,33 @@ class AssistanceController extends Controller
         if (isset ($estudianteActual)) { //SI ESTUDIANTE ACTUAL EXISTE ENTONCES:
             foreach ($materias as $materia) {
                 foreach ($materia->subjectSettings as $configuracionMateria){
-                echo($configuracionMateria->day).'<br>'; // hacer la comparacion entre dias y hora actual
-
+                //($configuracionMateria->day) Es el dia que se da la materia.
+                    $this->saveAssistance($configuracionMateria,$diaActual,$tiempoActual,$estudianteActual,$materia);
                 }
             }
         }
-        else {
-            dd("Este documento que ingreso no existe.");
-        }
-
-
-
-        
+               
+                
     }
 
+    public function saveAssistance($configuracionMateria,$diaActual,$tiempoActual,$estudianteActual,$materia) {
+        if (($configuracionMateria->day == $diaActual)
+                 && ($tiempoActual >= $configuracionMateria->start_time)
+                  && ($tiempoActual <= $configuracionMateria->limit_time)) {
+                   echo("Llego").'<br>';
+                   $assistance = Assistance::create([
+                    'student_id' => $estudianteActual->id,
+                    'subject_id' => $materia->id,
+                   ]);
+        }
+        else {
+          //Enviar error. 
+        }
+    }
+
+    public function verificateIfExist(){
+        
+    }
 
     public function show(Assistance $assistance)
     {

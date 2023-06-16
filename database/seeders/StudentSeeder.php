@@ -14,10 +14,10 @@ class StudentSeeder extends Seeder
     public function run(): void
     {
         DB::table('students')->insert([
-            'name' => 'Horacio',
-            'lastname' => 'Guarani',
-            'dni' => '36978541' ,
-            'birthdate' => '1998/12/12',
+            'name' => 'Bautista',
+            'lastname' => 'Amarillo',
+            'dni' => '43632740' ,
+            'birthdate' => '2001/10/18',
             'status' => 1
         ]);
     }
