@@ -66,7 +66,7 @@ class AssistanceController extends Controller
     }
 
     public function verificateIfExist(){
-        
+        //validar si esta presente, no duplicar asistencia.
     }
 
     public function show(Assistance $assistance)
