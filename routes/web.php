@@ -49,7 +49,14 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('students'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::get('/studentsjson',function (){
+    $students = Student::all();
+    $response = response()->json($students);
+    $response->header('Access-Control-Allow-Origin', 'http://localhost:8080');
+    $response->header('Access-Control-Allow-Methods', 'GET');
+    $response->header('Access-Control-Allow-Headers', 'Content-Type');
+    return $response;
+})->name('studentsjson');
 
 // ----------LOGIN-------------
 Route::get('/dashboard', function () {
