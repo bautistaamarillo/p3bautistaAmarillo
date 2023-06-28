@@ -41,12 +41,11 @@ class AssistanceController extends Controller
         if (isset ($estudianteActual)) { //SI ESTUDIANTE ACTUAL EXISTE ENTONCES:
             foreach ($materias as $materia) {
                 foreach ($materia->subjectSettings as $configuracionMateria){
-                //($configuracionMateria->day) Es el dia que se da la materia.
                     $this->saveAssistance($configuracionMateria,$diaActual,$tiempoActual,$estudianteActual,$materia);
                 }
             }
         }
-               
+       
                 
     }
 
@@ -61,7 +60,7 @@ class AssistanceController extends Controller
                    ]);
         }
         else {
-          //Enviar error. 
+          // 
         }
     }
 
