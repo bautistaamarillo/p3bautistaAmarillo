@@ -24,10 +24,6 @@ Route::get('index', function () {
     return view('index');
 });
 
-//--------- Student CRUD -------------
-
-// Route::resource('students',StudentController::class);
-
 //--------- AUDIT -------------
 
 Route::get('audit', [AuditController::class, 'index']);
@@ -38,31 +34,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// --------- Desarrollando ------------
+// --------- DESARROLLO ------------
 
 Route::get('/test', function () {
     return view('test');
 })->middleware(['auth', 'verified'])->name('test');
 
-Route::get('/dashboard', function () {
-    $students = Student::all();
-    return view('dashboard', compact('students'));
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+// ------------JSON PRACTICA PROFECIONALIZANTE.-------------
 Route::get('/studentsjson',function (){
     $students = Student::all();
     $response = response()->json($students);
-    $response->header('Access-Control-Allow-Origin', 'http://localhost:8080');
+    $response->header('Access-Control-Allow-Origin', '*');
     $response->header('Access-Control-Allow-Methods', 'GET');
     $response->header('Access-Control-Allow-Headers', 'Content-Type');
     return $response;
-})->name('studentsjson');
+})->name('studentsjson');  //SAQUE EL MIDDLEWARE PARA BYPASSEAR LA AUTENTIFICACION.
 
 // ----------LOGIN-------------
 Route::get('/dashboard', function () {
     $students = Student::all();
     return view('dashboard', compact('students'));
-    // return $students->tojson();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
