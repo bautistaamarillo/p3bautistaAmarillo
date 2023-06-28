@@ -45,7 +45,9 @@ class AssistanceController extends Controller
                 }
             }
         }
-       
+        if ($estudianteActual == null) {
+            echo("error");
+        }
                 
     }
 
