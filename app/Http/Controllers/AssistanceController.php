@@ -35,6 +35,8 @@ class AssistanceController extends Controller
         $dniIngresado = $request->dni; //Dni que ingresa para darse de alta la asistencia
         $estudianteActual = Student::Where("dni", $dniIngresado)->first(); //Estudiante cuyo dni fue ingresado
         
+        $this->alreadyExist($request);
+
         if (isset ($estudianteActual)) {
             $materias = $estudianteActual->subjects;//Materias que cursa este estudiante.    
             foreach ($materias as $materia) {
@@ -62,9 +64,23 @@ class AssistanceController extends Controller
                    ]);
     }
 
-    public function alreadyExist(){
+    public function alreadyExist(Request $request){
+    $estudianteActual = Student::where("dni", $request->dni)->first();
 
-    }
+    if ($estudianteActual) {
+        $materias = $estudianteActual->subjects;
+        foreach ($materias as $materia) {
+            $asistenciaExistente = Assistance::where('student_id', $estudianteActual->id)
+                ->where('subject_id', $materia->id)
+                ->first();
+
+            if ($asistenciaExistente) {
+                return view ('assistances.message')->with('message', 'La asistencia ya existe.');
+            }
+        }
+    } 
+
+}
 
     public function show(Assistance $assistance)
     {
