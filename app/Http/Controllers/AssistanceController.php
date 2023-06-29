@@ -28,46 +28,42 @@ class AssistanceController extends Controller
     }
 
     
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+
         $tiempoActual = Carbon::now()->format('H:i:s'); //Es la hora, minuto y segundo actual.
         $diaActual = date('w'); //Me devuelve el dia (1,2,3,4 y 5) de lunes a viernes.
-        
-        
         $dniIngresado = $request->dni; //Dni que ingresa para darse de alta la asistencia
         $estudianteActual = Student::Where("dni", $dniIngresado)->first(); //Estudiante cuyo dni fue ingresado
-        $materias = $estudianteActual->subjects; //Materias que cursa este estudiante.
-
-        if (isset ($estudianteActual)) { //SI ESTUDIANTE ACTUAL EXISTE ENTONCES:
+        
+        if (isset ($estudianteActual)) {
+            $materias = $estudianteActual->subjects;//Materias que cursa este estudiante.    
             foreach ($materias as $materia) {
                 foreach ($materia->subjectSettings as $configuracionMateria){
-                    $this->saveAssistance($configuracionMateria,$diaActual,$tiempoActual,$estudianteActual,$materia);
+                   
+                    if (($configuracionMateria->day == $diaActual)
+                        && ($tiempoActual >= $configuracionMateria->start_time)
+                        && ($tiempoActual <= $configuracionMateria->limit_time)) {
+                            $this->saveAssistance($estudianteActual,$materia);
+                            return view ('assistances.message')->with('message', 'La asistencia se cargo correctamente.');
+                    }
                 }
-            }
+            }            
+            return view ('assistances.message')->with('message', 'No se cargo ninguna asistencia.');
         }
-        if ($estudianteActual == null) {
-            echo("error");
+        else {
+            return view('assistances.message')->with('message', 'El dni ingresado no existe.');
         }
-                
     }
-
-    public function saveAssistance($configuracionMateria,$diaActual,$tiempoActual,$estudianteActual,$materia) {
-        if (($configuracionMateria->day == $diaActual)
-                 && ($tiempoActual >= $configuracionMateria->start_time)
-                  && ($tiempoActual <= $configuracionMateria->limit_time)) {
-                   echo("Llego").'<br>';
+    
+    public function saveAssistance($estudianteActual,$materia) {
                    $assistance = Assistance::create([
                     'student_id' => $estudianteActual->id,
                     'subject_id' => $materia->id,
                    ]);
-        }
-        else {
-          // 
-        }
     }
 
-    public function verificateIfExist(){
-        //validar si esta presente, no duplicar asistencia.
+    public function alreadyExist(){
+
     }
 
     public function show(Assistance $assistance)
