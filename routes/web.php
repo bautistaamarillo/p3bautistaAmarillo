@@ -18,6 +18,14 @@ use App\Models\Student;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// Headers
+// CORS
+function headerCors ( $response ){
+    $response->header('Access-Control-Allow-Origin', '*');
+    $response->header('Access-Control-Allow-Methods', 'GET');
+    $response->header('Access-Control-Allow-Headers', 'Content-Type');
+}
+
 //--------- INDEX -------------
 
 Route::get('index', function () {
@@ -40,15 +48,21 @@ Route::get('/test', function () {
     return view('test');
 })->middleware(['auth', 'verified'])->name('test');
 
+
 // ------------JSON PRACTICA PROFECIONALIZANTE.-------------
 Route::get('/studentsjson',function (){
     $students = Student::all();
     $response = response()->json($students);
-    $response->header('Access-Control-Allow-Origin', '*');
-    $response->header('Access-Control-Allow-Methods', 'GET');
-    $response->header('Access-Control-Allow-Headers', 'Content-Type');
+    headerCors($response);
     return $response;
 })->name('studentsjson');  //SAQUE EL MIDDLEWARE PARA BYPASSEAR LA AUTENTIFICACION.
+
+Route::get('/subjectsjson',function (){
+    $subjects = Subject::all();
+    $response = response()->json($subjects);
+    headersCors($response);
+    return $response;
+})->name('subjectsjson');
 
 // ----------LOGIN-------------
 Route::get('/dashboard', function () {
