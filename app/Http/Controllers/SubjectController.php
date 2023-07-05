@@ -37,8 +37,9 @@ class SubjectController extends Controller
         
         $subject = new Subject;
             $subject->name = $request->name;    
-            $subject_id = $subject->id;
             $subject_saved = $subject->save();
+            $subject_id = $subject->id;
+            
             if ($subject_saved == true) {
                
                 return view("subjectsettings.index",compact('subject_id'));
@@ -48,13 +49,7 @@ class SubjectController extends Controller
                 echo("error");
             }
     }
-    // $materia = new Subject();
-    // $materia->name = $request->name;
-    // $guardado = $materia->save();
-    // $id_materia = $materia->id; aca meto el id en otra variable
-    // if ($guardado == true){ aca pregunto
-    //     return view ('settingSubject.index',compact('id_materia'));
-    // }
+    
     /**
      * Display the specified resource.
      */

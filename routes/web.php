@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\SubjectSettingController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\AssistanceController;
 use App\Models\Student;
@@ -18,6 +19,8 @@ use App\Models\Student;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
 // Headers
 // CORS
 function headerCors ( $response ){
@@ -77,6 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('students',StudentController::class);
     Route::resource('subjects', SubjectController::class);
     Route::resource('assistances', AssistanceController::class);
+    Route::resource('subjectsettings', SubjectSettingController::class);
     
 });
 
