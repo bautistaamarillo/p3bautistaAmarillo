@@ -33,18 +33,28 @@ class SubjectController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $subject = Subject::create([
-            'name' => $request -> name,
-            // 'id' => $request -> id,
-        ]);
-        $subjectSetting = SubjectSettings::create([
-
-        ]);
-        $this->logAudit('Alta en subjects','A');
-        return redirect()->route('subjects.index');
+    {   
+        
+        $subject = new Subject;
+            $subject->name = $request->name;    
+            $subject_id = $subject->id;
+            $subject_saved = $subject->save();
+            if ($subject_saved == true) {
+               
+                return view("subjectsettings.index",compact('subject_id'));
+                $this->logAudit('Alta en subjects','A');
+            }
+            else {
+                echo("error");
+            }
     }
-
+    // $materia = new Subject();
+    // $materia->name = $request->name;
+    // $guardado = $materia->save();
+    // $id_materia = $materia->id; aca meto el id en otra variable
+    // if ($guardado == true){ aca pregunto
+    //     return view ('settingSubject.index',compact('id_materia'));
+    // }
     /**
      * Display the specified resource.
      */
