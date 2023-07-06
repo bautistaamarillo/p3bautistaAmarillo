@@ -28,7 +28,11 @@ class SubjectSettingController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $cantidadDias = $request->day; //Array de la cantidad de dias que va a tener esta materia. 
+        foreach ($cantidadDias as $diasMateriaConfig) { //diasmateriaconfig va a contener los dias en los cuales la materia se va a realizar
+            echo(env($diasMateriaConfig)); //con env, le doy valor constante a 1 2 3 4 5 como : lunes martes, etc.
+
+        }
     }
 
     /**
